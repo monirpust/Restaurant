@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BackendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,11 @@ use App\Http\Controllers\HomeController;
 // });
 
 Route::get("/", [HomeController::class, 'index']);
+
+Route::get("/users", [BackendController::class, 'user']);
+
+Route::get("/remove/{id}", [BackendController::class, 'remove']);
+
 Route::get("/redirects", [HomeController::class, 'redirects']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
