@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Food;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $foods = Food::all();
+        return view('home', compact("foods"));
     }
 
     public function redirects()
@@ -17,7 +19,8 @@ class HomeController extends Controller
         $usertype = Auth::user()->usertype;
         if($usertype == '0')
         {
-            return view('home');
+            $foods = Food::all();
+            return view('home', compact("foods"));
         }
 
         else{
