@@ -23,6 +23,10 @@ Route::get("/", [HomeController::class, 'index']);
 
 Route::get("/users", [BackendController::class, 'user']);
 
+Route::get("/foodmenu", [BackendController::class, 'foodmenu']);
+
+Route::post("/uploadfood", [BackendController::class, 'uploadfood']);
+
 Route::get("/remove/{id}", [BackendController::class, 'remove']);
 
 Route::get("/redirects", [HomeController::class, 'redirects']);
