@@ -23,7 +23,8 @@ class BackendController extends Controller
 
     public function foodmenu()
     {
-        return view("backend.foodmenu");
+        $foods = Food::all();
+        return view("backend.foodmenu", compact("foods"));
     }
 
     public function uploadfood(Request $request)
@@ -44,6 +45,41 @@ class BackendController extends Controller
         $data->save(); 
 
 
+        return redirect("/foodmenu");
+    }
+
+    public function updatefood($id)
+    {
+        $food = Food::find($id);
+
+        return view("backend.updatefood", compact("food"));
+    }
+
+    public function savefood(Request $request, $id)
+    {
+        $food = Food::find($id);
+
+        $image = $request->image;
+
+        $imagename = time() . '.' . $image->getClientOriginalExtension();
+        $request->image->move('foodimage', $imagename);
+
+        $food->image = $imagename;
+        $food->title = $request->title;
+        $food->price = $request->price;
+        $food->description = $request->description;
+
+        $food->save(); 
+
+
+        return redirect("/foodmenu");
+    }
+
+    public function removefood($id)
+    {
+        $food = Food::find($id);
+        $food->delete();
+        
         return redirect("/foodmenu");
     }
 }

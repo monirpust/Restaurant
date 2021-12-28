@@ -32,6 +32,32 @@
                         <input type="submit" value="Save">
                     </div>
                 </form>
+
+
+
+                <div>
+                    <table border="3px" style="background-color:black;" >
+                        <tr>
+                            <th style="padding: 30px">Item Name</th>
+                            <th style="padding: 30px">Price</th>
+                            <th style="padding: 30px">Description</th>
+                            <th style="padding: 30px">Image</th>
+                            <th style="padding: 30px">Action</th>
+                        </tr>
+                        @foreach ($foods as $food)
+                            <tr align="center">
+                                <td style="padding: 30px">{{$food->title}}</td>
+                                <td style="padding: 30px">{{$food->price}}</td>
+                                <td style="padding: 30px">{{$food->description}}</td>
+                                <td style="padding: 30px"><img height="200px" width="250px" src="/foodimage/{{$food->image}}" alt="{{$food->title}}"></td>
+                                <td style="padding: 30px">
+                                    <a href="{{url('removefood', $food->id)}}">Delete</a>
+                                    <a style="padding: 10px" href="{{url('updatefood', $food->id)}}">update</a>
+                                </td>
+                            </tr>                       
+                        @endforeach
+                    </table>
+                </div>
           </div>
     </div>
 

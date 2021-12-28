@@ -29,6 +29,12 @@ Route::post("/uploadfood", [BackendController::class, 'uploadfood']);
 
 Route::get("/remove/{id}", [BackendController::class, 'remove']);
 
+Route::get("/removefood/{id}", [BackendController::class, 'removefood']);
+
+Route::get("/updatefood/{id}", [BackendController::class, 'updatefood']);
+
+Route::post("/savefood/{id}", [BackendController::class, 'savefood']);
+
 Route::get("/redirects", [HomeController::class, 'redirects']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
