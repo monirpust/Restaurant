@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Food;
 use App\Models\Reservation;
+use App\Models\Foodchef;
 
 class BackendController extends Controller
 {
@@ -106,5 +107,29 @@ class BackendController extends Controller
         $data = Reservation::all();
 
         return view("backend.showreservation", compact("data"));
+    }
+
+    public function showchef()
+    {
+        $chef = Foodchef::all();
+        return view("backend.showchef", compact("chef"));
+    }
+
+    public function addchef(Request $request)
+    {
+
+        $chef = new Foodchef;
+        $image = $request->image;
+
+        $imagename = time() . '.' . $image->getClientOriginalExtension();
+        $request->image->move('chefimage', $imagename);
+
+        $chef->image = $imagename;
+        $chef->name = $request->name;
+        $chef->expertise = $request->expertise;
+
+        $chef->save(); 
+
+        return redirect("/showchef");
     }
 }

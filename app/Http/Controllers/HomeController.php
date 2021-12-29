@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Food;
+use App\Models\Foodchef;
 
 class HomeController extends Controller
 {
     public function index()
     {
         $foods = Food::all();
-        return view('home', compact("foods"));
+        $chefs = Foodchef::all();
+        return view('home', compact("foods", "chefs"));
     }
 
     public function redirects()

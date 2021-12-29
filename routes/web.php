@@ -15,9 +15,6 @@ use App\Http\Controllers\BackendController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::get("/", [HomeController::class, 'index']);
 
@@ -38,6 +35,10 @@ Route::post("/savefood/{id}", [BackendController::class, 'savefood']);
 Route::get("/redirects", [HomeController::class, 'redirects']);
 
 Route::get("/showreservation", [BackendController::class, 'showreservation']);
+
+Route::get("/showchef", [BackendController::class, 'showchef']);
+
+Route::post("/addchef", [BackendController::class, 'addchef']);
 
 
 
