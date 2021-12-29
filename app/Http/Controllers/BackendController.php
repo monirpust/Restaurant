@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Food;
+use App\Models\Reservation;
 
 class BackendController extends Controller
 {
@@ -81,5 +82,29 @@ class BackendController extends Controller
         $food->delete();
         
         return redirect("/foodmenu");
+    }
+
+    public function reservation(Request $request)
+    {
+        $data = new Reservation;
+
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->guest = $request->guest;
+        $data->date = $request->date;
+        $data->time = $request->time;
+        $data->message = $request->message;
+
+        $data->save();
+
+        return redirect("/");
+    }
+
+    public function showreservation()
+    {
+        $data = Reservation::all();
+
+        return view("backend.showreservation", compact("data"));
     }
 }

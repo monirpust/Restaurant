@@ -37,6 +37,10 @@ Route::post("/savefood/{id}", [BackendController::class, 'savefood']);
 
 Route::get("/redirects", [HomeController::class, 'redirects']);
 
+Route::get("/showreservation", [BackendController::class, 'showreservation']);
+
+
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

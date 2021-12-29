@@ -35,7 +35,7 @@
           </a>
         </li>
         <li class="nav-item menu-items">
-          <a class="nav-link" href="admin/pages/icons/mdi.html">
+          <a class="nav-link" href="/showreservation">
             <span class="menu-icon">
               <i class="mdi mdi-contacts"></i>
             </span>
