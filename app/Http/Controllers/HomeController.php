@@ -22,7 +22,8 @@ class HomeController extends Controller
         if($usertype == '0')
         {
             $foods = Food::all();
-            return view('home', compact("foods"));
+            $chefs = Foodchef::all();
+            return view('home', compact("foods", "chefs"));
         }
 
         else{
