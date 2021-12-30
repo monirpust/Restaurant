@@ -6,6 +6,7 @@
 <html lang="en">
   <head>
   @include('backend.style')
+  <base href="/public">
   </head>
   <body>
     <div class="container-scroller">
@@ -47,7 +48,7 @@
                                 <td style="padding: 30px"><img height="200px" width="250px" src="/chefimage/{{$chef->image}}" alt="{{$chef->title}}"></td>
                                 <td style="padding: 30px">
                                     <a href="{{url('removechef', $chef->id)}}">Delete</a>
-                                    <a style="padding: 10px" href="{{url('editchef', $chef->id)}}">update</a>
+                                    <a style="padding: 10px" href="{{url('editchef', $chef->id)}}">Edit</a>
                                 </td>
                             </tr>                       
                         @endforeach

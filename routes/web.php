@@ -40,6 +40,14 @@ Route::get("/showchef", [BackendController::class, 'showchef']);
 
 Route::post("/addchef", [BackendController::class, 'addchef']);
 
+Route::get("/editchef/{id}", [BackendController::class, 'editchef']);
+
+Route::post("/updatechef/{id}", [BackendController::class, 'updatechef']);
+
+Route::get("/removechef/{id}", [BackendController::class, 'removechef']);
+
+
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

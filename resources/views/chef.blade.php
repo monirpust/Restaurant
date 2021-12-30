@@ -20,7 +20,7 @@
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                             </ul>
-                            <img src="chefimage/{{$chef->image}}" alt="Chef #1">
+                            <img height="250px" width="200px" src="chefimage/{{$chef->image}}" alt="Chef #1">
                         </div>
                         <div class="down-content">
                             <h4>{{$chef->name}}</h4>

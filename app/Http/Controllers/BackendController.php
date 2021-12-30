@@ -132,4 +132,39 @@ class BackendController extends Controller
 
         return redirect("/showchef");
     }
+
+    public function editchef($id)
+    {
+        $chef = Foodchef::find($id);
+
+        return view("backend.editchef", compact("chef"));
+    }
+
+    public function updatechef(Request $request, $id)
+    {
+        $chef = Foodchef::find($id);
+
+        if($request->image)
+        {
+            $image = $request->image;
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $request->image->move('chefimage', $imagename);
+            $chef->image = $imagename;
+        }
+
+        $chef->name = $request->name;
+        $chef->expertise = $request->expertise;
+
+        $chef->save(); 
+
+        return redirect("/showchef");
+    }
+
+    public function removechef($id)
+    {
+        $chef = Foodchef::find($id);
+        $chef->delete();
+
+        return redirect("/showchef");
+    }
 }
