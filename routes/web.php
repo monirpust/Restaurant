@@ -46,6 +46,7 @@ Route::post("/updatechef/{id}", [BackendController::class, 'updatechef']);
 
 Route::get("/removechef/{id}", [BackendController::class, 'removechef']);
 
+Route::post("/addtocart/{id}", [HomeController::class, 'addtocart']);
 
 
 
