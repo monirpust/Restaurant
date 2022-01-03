@@ -8,8 +8,9 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <base href="/public">
     <title>Campus Cafe - Smart Restaurant</title>
+
+    <base href="/public">
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -23,7 +24,9 @@
     <link rel="stylesheet" href="assets/css/lightbox.css">
 
     </head>
-
+    
+    <body>
+    
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -48,8 +51,19 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="/" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#about">About</a></li>
+                           	
+                        <!-- 
+                            <li class="submenu">
+                                <a href="javascript:;">Drop Down</a>
+                                <ul>
+                                    <li><a href="#">Drop Down Page 1</a></li>
+                                    <li><a href="#">Drop Down Page 2</a></li>
+                                    <li><a href="#">Drop Down Page 3</a></li>
+                                </ul>
+                            </li>
+                        -->
                             <li class="scroll-to-section"><a href="#menu">Menu</a></li>
                             <li class="scroll-to-section"><a href="#chefs">Chefs</a></li> 
                             <li class="submenu">
@@ -105,62 +119,73 @@
     </header>
     <!-- ***** Header Area End ***** -->
 
-    <div style="position: relative; top:150px; right: 5px;">
-        <table align="center" border="3px" style="background:#dc3545;" >
-            <tr>
-                <th style="padding: 30px">Food Name</th>
-                <th style="padding: 30px">Price</th>
-                <th style="padding: 30px">Quantity</th>
-            </tr>
-            @foreach ($items as $item)
-                
-            @endforeach
-            <tr align="center">
-                <td>{{$item->title}}</td>
-                <td>${{$item->price}}</td>
-                <td>{{$item->quantity}}</td>
-            </tr>
-        </table>
+    <div id="top">
+
+                <div >
+                    <table align="center" magin="3px"  style="background: lightyellow;" >
+                        <tr>
+                            <th style="padding: 30px">Food Name</th>
+                            <th style="padding: 30px">Price</th>
+                            <th style="padding: 30px">Quantity</th>
+                            <th style="padding: 30px">Action</th>
+                        </tr>
+                    @foreach ($items as $item)
+                        <tr align="center">
+                            <td>{{$item->title}}</td>
+                            <td>${{$item->price}}</td>
+                            <td>{{$item->quantity}}</td>
+                        </tr>
+                    @endforeach
+
+                    @foreach ($cartitems as $cartitem)
+                        <tr style="position: relative;">
+                            <td>
+                                <a style="color: red" href="{{url('removeitem', $cartitem->id)}}">Remove</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </table>
+                </div>
+
     </div>
 
+     <!-- jQuery -->
+     <script src="assets/js/jquery-2.1.0.min.js"></script>
 
-    <!-- jQuery -->
-    <script src="assets/js/jquery-2.1.0.min.js"></script>
-
-    <!-- Bootstrap -->
-    <script src="assets/js/popper.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-
-    <!-- Plugins -->
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/accordions.js"></script>
-    <script src="assets/js/datepicker.js"></script>
-    <script src="assets/js/scrollreveal.min.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/imgfix.min.js"></script> 
-    <script src="assets/js/slick.js"></script> 
-    <script src="assets/js/lightbox.js"></script> 
-    <script src="assets/js/isotope.js"></script> 
-    
-    <!-- Global Init -->
-    <script src="assets/js/custom.js"></script>
-    <script>
-
-        $(function() {
-            var selectedClass = "";
-            $("p").click(function(){
-            selectedClass = $(this).attr("data-rel");
-            $("#portfolio").fadeTo(50, 0.1);
-                $("#portfolio div").not("."+selectedClass).fadeOut();
-            setTimeout(function() {
-              $("."+selectedClass).fadeIn();
-              $("#portfolio").fadeTo(50, 1);
-            }, 500);
-                
-            });
-        });
-
-    </script>
-  </body>
-</html>
+     <!-- Bootstrap -->
+     <script src="assets/js/popper.js"></script>
+     <script src="assets/js/bootstrap.min.js"></script>
+ 
+     <!-- Plugins -->
+     <script src="assets/js/owl-carousel.js"></script>
+     <script src="assets/js/accordions.js"></script>
+     <script src="assets/js/datepicker.js"></script>
+     <script src="assets/js/scrollreveal.min.js"></script>
+     <script src="assets/js/waypoints.min.js"></script>
+     <script src="assets/js/jquery.counterup.min.js"></script>
+     <script src="assets/js/imgfix.min.js"></script> 
+     <script src="assets/js/slick.js"></script> 
+     <script src="assets/js/lightbox.js"></script> 
+     <script src="assets/js/isotope.js"></script> 
+     
+     <!-- Global Init -->
+     <script src="assets/js/custom.js"></script>
+     <script>
+ 
+         $(function() {
+             var selectedClass = "";
+             $("p").click(function(){
+             selectedClass = $(this).attr("data-rel");
+             $("#portfolio").fadeTo(50, 0.1);
+                 $("#portfolio div").not("."+selectedClass).fadeOut();
+             setTimeout(function() {
+               $("."+selectedClass).fadeIn();
+               $("#portfolio").fadeTo(50, 1);
+             }, 500);
+                 
+             });
+         });
+ 
+     </script>
+   </body>
+ </html>
