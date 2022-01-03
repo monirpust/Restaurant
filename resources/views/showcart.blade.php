@@ -12,6 +12,10 @@
 
     <base href="/public">
 
+    <!-- jquery cdn -->>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
@@ -140,14 +144,57 @@
                     @foreach ($cartitems as $cartitem)
                         <tr style="position: relative;">
                             <td>
-                                <a style="color: red" href="{{url('removeitem', $cartitem->id)}}">Remove</a>
+                                <a class="btn btn-danger" href="{{url('removeitem', $cartitem->id)}}">Remove</a>
                             </td>
                         </tr>
                     @endforeach
                     </table>
                 </div>
+    </div>
+
+    <div align="center" style="padding:10px;">
+        <button class="btn btn-primary" id="order">Order Now</button>
+    </div>
+
+    <div align="center" id="appear" style="padding:10px; display:none;">
+        <div style="padding:10px;">
+            <label for="name">Name</label>
+            <input type="text" name="name" placeholder="Enter your name">
+        </div>
+
+        <div style="padding:10px;">
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" placeholder="Phone number">
+        </div>
+
+        <div style="padding:10px;">
+            <label for="address">Address</label>
+            <input type="text" name="address" placeholder="Enter your detail address">
+        </div>
+
+        
+        <div style="padding:10px;">
+            <input class="btn btn-success" type="submit" value="Confirm Order">
+            <button id="close" class="btn btn-danger" >Cancel</button>
+        </div>
 
     </div>
+
+    <script>
+        $("#order").click(
+            function()
+            {
+                $("#appear").show();
+            }
+        );
+
+        $("#close").click(
+            function()
+            {
+                $("#appear").hide();
+            }
+        );
+    </script>
 
      <!-- jQuery -->
      <script src="assets/js/jquery-2.1.0.min.js"></script>
