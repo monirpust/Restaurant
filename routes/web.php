@@ -48,7 +48,7 @@ Route::get("/removechef/{id}", [BackendController::class, 'removechef']);
 
 Route::post("/addtocart/{id}", [HomeController::class, 'addtocart']);
 
-
+Route::get("/showcart/{id}", [HomeController::class, 'showcart']);
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

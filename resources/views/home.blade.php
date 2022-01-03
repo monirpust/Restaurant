@@ -8,14 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <title>Klassy Cafe - Restaurant HTML Template</title>
-<!--
-    
-TemplateMo 558 Klassy Cafe
+    <title>Campus Cafe - Smart Restaurant</title>
 
-https://templatemo.com/tm-558-klassy-cafe
-
--->
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
@@ -49,7 +43,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
+                        <a href="/" class="logo">
                             <img src="assets/images/klassy-logo.png" align="klassy cafe html template">
                         </a>
                         <!-- ***** Logo End ***** -->
@@ -82,15 +76,19 @@ https://templatemo.com/tm-558-klassy-cafe
                        
                             <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
                             <li class="scroll-to-section">
-                                <a style="background-color:#3aac76; color:white; padding:2px"  href="#reservation">
+
                                     @auth
-                                        Cart[{{$count}}]
+                                        <a style="background-color:#3aac76; color:white; padding:2px"  href="{{url('showcart', Auth::id())}}">
+                                            Cart[{{$count}}]
+                                        </a>
                                     @endauth
 
                                     @guest
-                                        Cart[0]
+                                        <a href="/login">
+                                            Cart[0]
+                                        </a>
                                     @endguest
-                                </a>
+
                             </li> 
                             <li>
                             @if (Route::has('login'))
@@ -110,10 +108,7 @@ https://templatemo.com/tm-558-klassy-cafe
                                 </div>
                             @endif
                             </li>
-                        </ul>        
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
+                        </ul>     
                         <!-- ***** Menu End ***** -->
                     </nav>
                 </div>

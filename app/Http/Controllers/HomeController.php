@@ -12,9 +12,14 @@ class HomeController extends Controller
 {
     public function index()
     {
+        if(Auth::check())
+        {
+            $user_id = Auth::id();
+            $count = Cart::where('user_id', $user_id)->count();
+        }
         $foods = Food::all();
         $chefs = Foodchef::all();
-        return view('home', compact("foods", "chefs"));
+        return view('home', compact("foods", "chefs", "count"));
     }
 
     public function redirects()
@@ -54,5 +59,15 @@ class HomeController extends Controller
         {
             return redirect('/login');
         }
+    }
+
+    public function showcart($id)
+    {
+       $user_id = $id;
+
+       $count = Cart::where('user_id', $id)->count();
+
+       $items = Cart::where('user_id', $id)->join('food', 'carts.food_id', '=', 'food.id')->get();
+        return view('showcart', compact('count', 'items'));
     }
 }
