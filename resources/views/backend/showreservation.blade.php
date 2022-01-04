@@ -30,10 +30,6 @@
                               <td style="padding: 30px">{{$data->guest}}</td>
                               <td style="padding: 30px">{{$data->time}}</td>
                               <td style="padding: 30px">{{$data->message}}</td>
-                              {{-- <td style="padding: 30px">
-                                  <a href="{{url('removefood', $food->id)}}">Delete</a>
-                                  <a style="padding: 10px" href="{{url('updatefood', $food->id)}}">update</a>
-                              </td> --}}
                           </tr>                       
                       @endforeach
                   </table>

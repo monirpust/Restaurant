@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Food;
 use App\Models\Reservation;
 use App\Models\Foodchef;
+use App\Models\Order;
 
 class BackendController extends Controller
 {
@@ -166,5 +167,11 @@ class BackendController extends Controller
         $chef->delete();
 
         return redirect("/showchef");
+    }
+
+    public function showorders()
+    {
+        $orders = Order::all();
+        return view('backend.showorders', compact('orders'));
     }
 }
