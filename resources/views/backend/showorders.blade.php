@@ -4,13 +4,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+      <base href="/public">
   @include('backend.style')
   </head>
   <body>
     <div class="container-scroller">
       @include('backend.sidebar')
       <div style="position: relative; top:60px; right: -150px;">
-              <div>
+              <div class="container">
+                  <div class="col-lg-4">
+                    <form action="/search">
+                        <input type="text" name="search" style="color:blue;">
+                        <input class=" btn btn-primary" type="submit" value="Search">
+                      </form>
+                  </div>
+
+
                   <table border="3px" style="background-color:black;" >
                       <tr>
                           <th style="padding: 30px">Customer Name</th>

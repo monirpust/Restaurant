@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="/public">
   @include('backend.style')
   </head>
   <body>
