@@ -45,6 +45,9 @@
                         <!-- ***** Logo Start ***** -->
                         <a href="/" class="logo">
                             <img src="assets/images/klassy-logo.png" align="klassy cafe html template">
+                            <a class="menu-trigger">
+                                <span>Menu</span>
+                            </a>
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
