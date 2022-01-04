@@ -15,11 +15,7 @@ class HomeController extends Controller
     {
         if(Auth::check())
         {
-            $user_id = Auth::id();
-            $count = Cart::where('user_id', $user_id)->count();
-            $foods = Food::all();
-            $chefs = Foodchef::all();
-            return view('home', compact("foods", "chefs", "count"));
+            return redirect('redirects');
         }
         $foods = Food::all();
         $chefs = Foodchef::all();
