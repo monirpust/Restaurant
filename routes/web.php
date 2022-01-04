@@ -52,6 +52,7 @@ Route::get("/showcart/{id}", [HomeController::class, 'showcart']);
 
 Route::get("/removeitem/{id}", [HomeController::class, 'removeitem']);
 
+Route::post("/saveorder", [HomeController::class, 'saveorder']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

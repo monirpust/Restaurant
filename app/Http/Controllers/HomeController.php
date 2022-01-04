@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Food;
 use App\Models\Foodchef;
 use App\Models\Cart;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -79,6 +80,25 @@ class HomeController extends Controller
         $item = Cart::find($id);
 
         $item->delete();
+
+        return redirect()->back();
+    }
+
+    public function saveorder(Request $request)
+    {
+        foreach($request->foodname as $key => $foodname)
+        {
+            $data = new Order;
+
+            $data->foodname = $foodname;
+            $data->price = $request->price[$key];
+            $data->quantity = $request->quantity[$key];
+            $data->name = $request->name;
+            $data->phone = $request->phone;
+            $data->address = $request->address;
+
+            $data->save();
+        }
 
         return redirect()->back();
     }

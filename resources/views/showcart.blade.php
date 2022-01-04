@@ -133,11 +133,22 @@
                             <th style="padding: 30px">Quantity</th>
                             <th style="padding: 30px">Action</th>
                         </tr>
+                <form action="/saveorder" method="post">
+                    @csrf
                     @foreach ($items as $item)
                         <tr align="center">
-                            <td>{{$item->title}}</td>
-                            <td>${{$item->price}}</td>
-                            <td>{{$item->quantity}}</td>
+                            <td>
+                                <input type="text" name="foodname[]" value="{{$item->title}}" hidden>
+                                {{$item->title}}
+                            </td>
+                            <td>
+                                <input type="text" name="price[]" value="{{$item->price}}" hidden>
+                                ${{$item->price}}
+                            </td>
+                            <td>
+                                <input type="text" name="quantity[]" value="{{$item->quantity}}" hidden>
+                                {{$item->quantity}}
+                            </td>
                         </tr>
                     @endforeach
 
@@ -153,7 +164,7 @@
     </div>
 
     <div align="center" style="padding:10px;">
-        <button class="btn btn-primary" id="order">Order Now</button>
+        <button class="btn btn-primary" type="button" id="order">Order Now</button>
     </div>
 
     <div align="center" id="appear" style="padding:10px; display:none;">
@@ -175,10 +186,11 @@
         
         <div style="padding:10px;">
             <input class="btn btn-success" type="submit" value="Confirm Order">
-            <button id="close" class="btn btn-danger" >Cancel</button>
+            <button id="close" class="btn btn-danger" type="button" >Cancel</button>
         </div>
 
     </div>
+</form>
 
     <script>
         $("#order").click(
